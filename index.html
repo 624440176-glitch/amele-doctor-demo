@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>
+    if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+      location.replace('https://htmlpreview.github.io/?https://github.com/624440176-glitch/amele-doctor-demo/blob/main/doctor.html');
+    }
+  </script>
+  <script>
     document.addEventListener('DOMContentLoaded',()=>{const map=[['阿美乐','项目药品'],['翰森制药','平台服务方'],['买三赠三','按项目规则'],['阿美乐患者援助项目','患者援助项目']];const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const ns=[];while(w.nextNode())ns.push(w.currentNode);ns.forEach(n=>{map.forEach(([a,b])=>{n.nodeValue=n.nodeValue.replaceAll(a,b)})});document.title='患者援助服务平台'});
   </script>
   <title>患者援助服务平台</title>
