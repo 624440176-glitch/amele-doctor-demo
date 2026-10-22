@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{const map=[['阿美乐','项目药品'],['药援汇','患者援助平台'],['医生中心','药师端'],['阿美乐患者援助项目','患者援助项目'],['阿美乐项目备案','项目备案'],['肺癌患者','符合条件的患者']];const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const ns=[];while(w.nextNode())ns.push(w.currentNode);ns.forEach(n=>{map.forEach(([a,b])=>{n.nodeValue=n.nodeValue.replaceAll(a,b)})});document.title='患者援助平台 - 药师端'});
+  </script>
   <title>药援汇医生中心 Demo</title>
   <style>
     :root{--blue:#0d98ed;--blue2:#dff5ff;--ink:#16324a;--muted:#6e8495;--line:#d8edf7;--bg:#f3fbff;--card:#fff;--green:#20b978;--orange:#ff9763}
