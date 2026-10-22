@@ -4,11 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>
-    if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) && !location.pathname.endsWith('/doctor.html')) {
-      location.replace('doctor.html');
-    }
+    document.addEventListener('DOMContentLoaded',()=>{const map=[['阿美乐','项目药品'],['翰森制药','平台服务方'],['买三赠三','按项目规则'],['阿美乐患者援助项目','患者援助项目']];const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const ns=[];while(w.nextNode())ns.push(w.currentNode);ns.forEach(n=>{map.forEach(([a,b])=>{n.nodeValue=n.nodeValue.replaceAll(a,b)})});document.title='患者援助服务平台'});
   </script>
-  <title>阿美乐患者援助项目 Demo</title>
+  <title>患者援助服务平台</title>
   <style>
     :root{--blue:#e8995d;--blue2:#f4c08e;--ink:#2f2b28;--muted:#8b8178;--bg:#faf7f3;--line:#f0e2d6;--red:#df7f45;--card:#fff}
     *{box-sizing:border-box} body{margin:0;background:#dfe7f1;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;color:var(--ink)}
@@ -32,7 +30,7 @@
 <body>
 <main class="shell">
   <section id="home" class="page active">
-    <div class="top"><span class="close">×</span><span>阿美乐患者援助项目</span><span class="more">•••</span></div>
+    <div class="top"><span class="close">×</span><span>患者援助服务平台</span><span class="more">•••</span></div>
     <div class="hero"><div class="row"><div><h1 style="font-size:24px;margin-bottom:7px">用户 001</h1><p>188****8992</p></div><span class="pill" style="background:#fff;color:#b96f3e;cursor:pointer" onclick="toast('已退出登录')">◷ 退出</span></div></div>
     <div class="content">
       <div class="card"><div class="row"><h2>我的援助</h2><span class="small" onclick="toast('暂无历史援助记录')" style="cursor:pointer">查看历史援助 ›</span></div><div class="choice home-module" style="min-height:138px;position:relative"><strong class="home-link" style="font-size:21px">援助申请</strong><div style="display:flex;gap:8px;margin-top:54px"><span class="home-action" style="display:block;cursor:pointer" onclick="go('detail')">首次援助申请</span><span class="home-action home-action-secondary" style="display:block;cursor:pointer" onclick="startFollowup()">后续申请</span></div><span class="home-icon" style="position:absolute;right:20px;bottom:20px">↗</span></div></div>
@@ -41,9 +39,9 @@
   </section>
 
   <section id="detail" class="page"><div class="top"><span class="close" onclick="go('home')">‹</span><span>项目介绍</span><span class="more">•••</span></div><div class="content">
-    <div class="project-poster"><div class="eyebrow">PATIENT ASSISTANCE PROGRAM</div><h1>阿美乐患者援助项目</h1><p>为符合项目条件、经医生评估适宜使用阿美乐的患者，提供规范、透明、可追溯的援助申请服务。</p><span class="poster-tag">翰森制药 · 用药支持</span></div>
-    <div class="card"><h2>项目背景</h2><p class="small detail-lead">本项目旨在帮助经医生评估适宜使用阿美乐治疗的患者减轻治疗负担，提高规范治疗的持续性。项目援助药品由翰森制药支持。</p><div class="notice">项目审核时效：材料提交后 1 个工作日内完成审核。请确保材料真实、完整、清晰、可核验。</div></div>
-    <div class="card"><h2>援助对象与方案</h2><p class="small">经具备相应资质的医生评估适宜使用阿美乐，符合申请条件并自愿通过项目平台申请援助的患者，可参加本项目。</p><div class="rule-grid"><div class="rule-item"><strong>援助模式</strong><span>买三赠三</span></div><div class="rule-item"><strong>后续申请</strong><span>经医生评估仍需治疗，可按规则循环申请</span></div></div></div>
+    <div class="project-poster"><div class="eyebrow">PATIENT ASSISTANCE PROGRAM</div><h1>患者援助服务项目</h1><p>为符合项目条件、经医生评估适宜治疗的患者，提供规范、透明、可追溯的援助申请服务。</p><span class="poster-tag">用药支持服务平台</span></div>
+    <div class="card"><h2>项目背景</h2><p class="small detail-lead">本项目旨在帮助经医生评估适宜治疗的患者减轻治疗负担，提高规范治疗的持续性。</p><div class="notice">项目审核时效：材料提交后 1 个工作日内完成审核。请确保材料真实、完整、清晰、可核验。</div></div>
+    <div class="card"><h2>援助对象与方案</h2><p class="small">经具备相应资质的医生评估适宜治疗，符合申请条件并自愿通过平台申请援助的患者，可参加本项目。</p><div class="rule-grid"><div class="rule-item"><strong>援助模式</strong><span>按项目规则执行</span></div><div class="rule-item"><strong>后续申请</strong><span>经医生评估仍需治疗，可按规则循环申请</span></div></div></div>
     <div class="card"><h2>申请材料</h2><p class="section-title">患者信息</p><ul class="detail-list"><li>项目知情同意书</li><li>本人身份证明材料（正反面）</li></ul><p class="section-title">医学材料</p><ul class="detail-list"><li>项目处方或医生评估材料（处方有效期 30 天）</li><li>疾病诊断证明或病历（近 3 个月内）</li><li>近 3 个月影像学报告（如适用）</li></ul><p class="section-title">购药凭证</p><ul class="detail-list"><li>自费购药发票或购药凭证</li><li>购药清单、药品追溯码证明（如适用）</li></ul></div>
     <div class="card"><h2>领药与项目规则</h2><p class="small">审核通过后，患者可按平台通知选择线下药房领取或云仓配送。云仓配送需填写收货人、收货地址及收货人联系电话。</p><p class="small">患者可自愿参加或退出项目；如不再符合申请条件、不能配合补充材料或触发项目终止规则，项目将停止提供后续援助。</p></div>
   </div><div class="bottom"><button class="btn" onclick="go('consent')">开始申请</button></div></section>
@@ -52,10 +50,10 @@
     <div class="card consent-sheet"><h2>《阿美乐患者援助项目知情同意书》</h2><p class="consent-intro">请在申请加入项目之前，充分阅读并理解以下内容。您可以根据自己的真实意愿决定是否参加项目，参加或退出均不会影响您获得正常医疗服务的权利。</p>
       <div class="consent-section"><strong>一、项目目的与参与条件</strong><p>本项目为符合条件、经医生评估适宜使用阿美乐的患者提供援助申请服务。患者须自愿参加，并按照项目规则提交真实、合法、完整且可核验的材料。</p></div>
       <div class="consent-section"><strong>二、申请与审核规则</strong><p>患者需在线提交身份证明、项目知情同意书、处方或医生评估材料、诊断证明或病历、购药发票或凭证等资料。项目办将在材料提交后 1 个工作日内完成审核；如材料不完整，可能需要补充或更正。</p></div>
-      <div class="consent-section"><strong>三、援助方案与领药方式</strong><p>本项目暂按“买三赠三”的方式执行。审核通过后，患者可按平台通知选择线下药房领取或云仓配送；选择配送时需填写收货人、联系电话和收货地址。</p></div>
+      <div class="consent-section"><strong>三、援助方案与领取方式</strong><p>本项目按照平台公布的援助规则执行。审核通过后，患者可按平台通知选择线下领取或配送；选择配送时需填写收货人、联系电话和收货地址。</p></div>
       <div class="consent-section"><strong>四、隐私保护与信息使用</strong><p>平台将通过账号权限管理、安全防护及必要的技术措施保护患者信息。相关资料仅在项目审核、项目管理、药品发放、随访、审计监督及法律法规允许的必要范围内使用，不用于无关目的。</p></div>
       <div class="consent-section"><strong>五、自愿退出与项目终止</strong><p>患者可以自愿退出项目，并应按照平台提示确认退出及后续规则。若患者不再符合申请条件、无法配合材料补充、提供虚假资料或触发其他终止条件，项目可停止提供后续援助。</p></div>
-      <div class="consent-section"><strong>六、重要提示</strong><p>本项目不替代医生诊断和治疗。患者应遵医嘱使用药品并按要求完成医学随访；如对项目规则或材料要求有疑问，请通过平台客服咨询。</p></div>
+      <div class="consent-section"><strong>六、重要提示</strong><p>本项目不替代医生诊断和治疗。患者应遵医嘱治疗并按要求完成医学随访；如对项目规则或材料要求有疑问，请通过平台客服咨询。</p></div>
     </div>
   </div><div class="consent-bottom"><div class="check"><input id="agree" type="checkbox"><span>我已阅读并理解《项目知情同意书》《隐私协议》《服务协议》，并自愿签署相关协议</span></div><button class="btn" onclick="nextConsent()">同意并继续</button></div></section>
 
